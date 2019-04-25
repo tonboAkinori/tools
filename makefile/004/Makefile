@@ -1,8 +1,9 @@
+#複数ターゲットを調べる
 TARGET = app hoge
 SRCS = main.c sub.c
 OBJS = ${SRCS:.c=.o}
 
-all: $(TARGET)
+all: app hoge
 
 ${TARGET}: ${OBJS}
 	${CC} -o $@ ${OBJS}
@@ -17,3 +18,4 @@ sub.o: sub.h
 
 clean:
 	${RM} *~ *.o ${TARGET}
+
