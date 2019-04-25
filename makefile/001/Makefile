@@ -1,0 +1,15 @@
+TARGET = app
+OBJS = main.o my_echo.o
+
+$(TARGET): ${OBJS}
+	gcc -o app ${OBJS}
+	echo "> Create Target"
+
+main.o: main.c
+	gcc -c main.c
+
+my_echo.o:
+	gcc -c my_echo.c
+
+clean:
+	 ${RM} ${TARGET} *~ *.o
