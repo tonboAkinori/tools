@@ -6,3 +6,23 @@
 
 ;括弧内をハイライト
 (setq show-paren-style 'expression)
+
+; mozcをインストール
+; precondition: sudo apt-get install emacs-mozc emacs-mozc-bin
+(require 'mozc)
+(set-language-environment "Japanese")
+(setq default-input-method "japanese-mozc")
+
+; C-muhenkan で日本語入力
+(define-key global-map (kbd "C-<muhenkan>") 'toggle-input-method)
+(define-key global-map (kbd "C-z") 'undo)
+(define-key global-map (kbd "C-o") 'other-window)
+(define-key global-map (kbd "C-l") 'goto-line)
+
+; 行番号
+(global-linum-mode 1)
+
+; color
+;(load-theme 'manoj-dark t)
+;(load-theme 'misterioso t)
+(load-theme 'wombat t)
