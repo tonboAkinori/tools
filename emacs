@@ -18,6 +18,7 @@
 (define-key global-map (kbd "C-z") 'undo)
 (define-key global-map (kbd "C-o") 'other-window)
 (define-key global-map (kbd "C-l") 'goto-line)
+(define-key global-map (kbd "C-<henkan>") 'list-buffers)
 
 ; 行番号
 (global-linum-mode 1)
