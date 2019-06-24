@@ -1,4 +1,4 @@
-#å¤šæ®µMakefile
+#‘½’iMakefile
 TARGET = app 
 SUB_TARGET = ui codec
 LIB_UI_DIR = lib/ui

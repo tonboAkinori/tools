@@ -20,6 +20,9 @@
 (define-key global-map (kbd "C-l") 'goto-line)
 (define-key global-map (kbd "C-<henkan>") 'list-buffers)
 
+; モードラインに列番号を表示
+(column-number-mode t)
+
 ; 行番号
 (global-linum-mode 1)
 

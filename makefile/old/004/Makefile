@@ -1,6 +1,9 @@
+#複数ターゲットを調べる
 TARGET = app hoge
 SRCS = main.c sub.c
 OBJS = ${SRCS:.c=.o}
+
+all: ${TARGET}
 
 ${TARGET}: ${OBJS}
 	${CC} -o $@ ${OBJS}
