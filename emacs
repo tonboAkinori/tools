@@ -24,9 +24,15 @@
 (column-number-mode t)
 
 ; 行番号
-(global-linum-mode 1)
+; emacs26からは、native実装されているので変更した方が良い
+; (display-line-number-mode)
+(global-linum-mode t)
 
 ; color
 ;(load-theme 'manoj-dark t)
 ;(load-theme 'misterioso t)
 (load-theme 'wombat t)
+
+; *~のファイルを作成しない
+(setq make-backup-files nil)
+
