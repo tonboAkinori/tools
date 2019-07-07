@@ -36,3 +36,10 @@
 ; *~のファイルを作成しない
 (setq make-backup-files nil)
 
+; python mode の設定
+(add-hook 'python-mode-hook
+	  '(lambda()
+	     (setq indent-tabs-mode nil)
+	     (setq indent-level 4)
+	     (setq python-indent 4)))
+
