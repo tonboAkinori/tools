@@ -43,3 +43,44 @@
 	     (setq indent-level 4)
 	     (setq python-indent 4)))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; パッケージ管理
+;;
+;; M-x package-install [RET] pakcage名[RET]
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'package)
+; MELPAを追加
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
+;; 初期化
+(package-initialize)
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; helm-gtags package ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'helm-gtags)
+(helm-gtags-mode t)
+
+(add-hook 'c++-mode-hook (lambda () (helm-gtags-mode)))
+
+(setq helm-gtags-mode-hook
+  '(lambda ()
+  (local-unset-key "\C-t")
+  ; 文脈から判断してジャンプ
+  (local-set-key "\C-t\C-t" 'helm-gtags-dwim)
+  ; 定義元へ
+  (local-set-key "\C-t\C-d" 'helm-gtags-find-tag)
+  ; 参照元へ
+  (local-set-key "\C-t\C-r" 'helm-gtags-find-rtag)
+  ; 変数の定義元/参照先へ
+  (local-set-key "\C-t\C-s" 'helm-gtags-find-symbol)
+  ; 前のバッファへ
+  (local-set-key "\C-t\C-p" 'helm-gtags-previous-history)
+  ; 次のバッファへ
+  (local-set-key "\C-t\C-n" 'helm-gtags-next-history)
+  ; ファイルへ
+  (local-set-key "\C-t\C-f" 'helm-gtags-find-file)
+  ))
+
