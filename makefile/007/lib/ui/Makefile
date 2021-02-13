@@ -3,7 +3,6 @@ TARGET = ui.o
 INCLUDE_PATH = -I../../include
 
 SRCS = ui.c 
-#OBJS = ${SRCS:.c=.o}
 DEPS = ${SRCS:.c=.d}  
 
 # COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
@@ -13,9 +12,9 @@ DEPS = ${SRCS:.c=.d}
 # %.o: %.c 
 # $(COMPILE.C) $(OUTPUT_OPTION) $<
 
-all: ${TARGET} 
+all: ${TARGET}
 
-${TARGET}:
+-include ${DEPS}
 
 %.o: %.c 
 	${COMPILE.c} ${OUTPUT_OPTION} ${INCLUDE_PATH} -MMD $<

@@ -15,6 +15,8 @@ DEPS = ${SRCS:.c=.d}
 
 all: ${TARGET} 
 
+-include ${DEPS}
+
 ${TARGET}:
 
 %.o: %.c 
